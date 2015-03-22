@@ -54,6 +54,8 @@ public class MainActivity extends ActionBarActivity {
         setContentView(R.layout.activity_main);
         LinearLayout mainLayout = (LinearLayout) findViewById(R.id.main_linear_layout);
 
+        mSeekbar = (SeekBar) findViewById(R.id.seekbar);
+
         // First we iterate through the Layout Views
         //NOTE -1 is substracted as we don't want to include the seek bar.
         for (int i = 0; i < ((ViewGroup)mainLayout).getChildCount()-1; i++) {
@@ -66,6 +68,24 @@ public class MainActivity extends ActionBarActivity {
                 mTVArray[i+t] = textView;
             }
         }
+
+        mSeekbar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
+
     }
 
 
