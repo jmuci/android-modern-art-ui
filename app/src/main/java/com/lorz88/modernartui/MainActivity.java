@@ -4,6 +4,8 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -16,6 +18,7 @@ public class MainActivity extends ActionBarActivity {
 
     private static final int MENU_MORE_INFO = Menu.FIRST;
     private static final String TAG = "ModernArtUI";
+    public static final String ARTIST_URL = "http://www.moma.org/collection/browse_results.php?criteria=O%3ADE%3AI%3A5%7CG%3AHI%3AE%3A1&page_number=1&template_id=1&sort_order=2";
 
     private SeekBar mSeekbar;
 
@@ -64,6 +67,8 @@ public class MainActivity extends ActionBarActivity {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             Log.d(TAG, "On Click for Create Dialog");
+                            Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(ARTIST_URL));
+                            startActivity(browserIntent);
                         }
                     })
                     .setNegativeButton(R.string.opts_dialog_not_visit, null);
