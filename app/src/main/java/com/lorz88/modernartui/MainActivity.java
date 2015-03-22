@@ -9,12 +9,15 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.SeekBar;
 
 
 public class MainActivity extends ActionBarActivity {
 
     private static final int MENU_MORE_INFO = Menu.FIRST;
     private static final String TAG = "ModernArtUI";
+
+    private SeekBar mSeekbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
