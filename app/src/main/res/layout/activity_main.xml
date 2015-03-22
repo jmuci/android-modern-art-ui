@@ -4,7 +4,8 @@
     android:layout_height="match_parent"
     android:layout_weight="1"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:id="@+id/main_linear_layout">
 
     <LinearLayout
         android:layout_width="fill_parent"
@@ -17,6 +18,7 @@
             android:layout_height="match_parent"
             android:layout_weight="2"
             android:background="@color/moma_light_gray"
+            android:id="@+id/tv11"
             />
 
         <TextView
@@ -24,6 +26,7 @@
             android:layout_height="match_parent"
             android:layout_weight="3"
             android:background="@color/moma_orange"
+            android:id="@+id/tv12"
             />
 
         <TextView
@@ -31,6 +34,7 @@
             android:layout_height="match_parent"
             android:layout_weight="3"
             android:background="@color/moma_garnet"
+            android:id="@+id/tv13"
             />
 
         <TextView
@@ -38,6 +42,7 @@
             android:layout_height="match_parent"
             android:layout_weight="2"
             android:background="@color/moma_black"
+            android:id="@+id/tv14"
             />
 
         <TextView
@@ -45,6 +50,7 @@
             android:layout_height="match_parent"
             android:layout_weight="4"
             android:background="@color/moma_light_gray"
+            android:id="@+id/tv15"
             />
 
     </LinearLayout>
@@ -60,6 +66,8 @@
             android:layout_height="match_parent"
             android:layout_weight="2"
             android:background="@color/moma_black"
+            android:id="@+id/tv21"
+
             />
 
         <TextView
@@ -67,6 +75,7 @@
             android:layout_height="match_parent"
             android:layout_weight="3"
             android:background="@color/moma_light_gray"
+            android:id="@+id/tv22"
             />
 
         <TextView
@@ -74,6 +83,7 @@
             android:layout_height="match_parent"
             android:layout_weight="3"
             android:background="@color/moma_orange"
+            android:id="@+id/tv23"
             />
 
         <TextView
@@ -81,6 +91,7 @@
             android:layout_height="match_parent"
             android:layout_weight="2"
             android:background="@color/moma_garnet"
+            android:id="@+id/tv24"
             />
 
         <TextView
@@ -88,6 +99,7 @@
             android:layout_height="match_parent"
             android:layout_weight="4"
             android:background="@color/moma_black"
+            android:id="@+id/tv25"
             />
 
     </LinearLayout>
@@ -103,6 +115,7 @@
             android:layout_height="match_parent"
             android:layout_weight="2"
             android:background="@color/moma_garnet"
+            android:id="@+id/tv31"
             />
 
         <TextView
@@ -110,6 +123,7 @@
             android:layout_height="match_parent"
             android:layout_weight="3"
             android:background="@color/moma_black"
+            android:id="@+id/tv32"
             />
 
         <TextView
@@ -117,6 +131,7 @@
             android:layout_height="match_parent"
             android:layout_weight="3"
             android:background="@color/moma_light_gray"
+            android:id="@+id/tv33"
             />
 
         <TextView
@@ -124,6 +139,7 @@
             android:layout_height="match_parent"
             android:layout_weight="2"
             android:background="@color/moma_orange"
+            android:id="@+id/tv34"
             />
 
         <TextView
@@ -131,6 +147,7 @@
             android:layout_height="match_parent"
             android:layout_weight="4"
             android:background="@color/moma_garnet"
+            android:id="@+id/tv35"
             />
 
     </LinearLayout>
@@ -146,6 +163,7 @@
             android:layout_height="match_parent"
             android:layout_weight="2"
             android:background="@color/moma_orange"
+            android:id="@+id/tv41"
             />
 
         <TextView
@@ -153,6 +171,7 @@
             android:layout_height="match_parent"
             android:layout_weight="3"
             android:background="@color/moma_garnet"
+            android:id="@+id/tv42"
             />
 
         <TextView
@@ -160,6 +179,7 @@
             android:layout_height="match_parent"
             android:layout_weight="3"
             android:background="@color/moma_black"
+            android:id="@+id/tv43"
             />
 
         <TextView
@@ -167,6 +187,7 @@
             android:layout_height="match_parent"
             android:layout_weight="2"
             android:background="@color/moma_light_gray"
+            android:id="@+id/tv44"
             />
 
         <TextView
@@ -174,6 +195,7 @@
             android:layout_height="match_parent"
             android:layout_weight="4"
             android:background="@color/moma_orange"
+            android:id="@+id/tv45"
             />
 
     </LinearLayout>
@@ -188,6 +210,7 @@
             android:layout_height="match_parent"
             android:layout_weight="2"
             android:background="@color/moma_light_gray"
+            android:id="@+id/tv51"
             />
 
         <TextView
@@ -195,6 +218,7 @@
             android:layout_height="match_parent"
             android:layout_weight="3"
             android:background="@color/moma_orange"
+            android:id="@+id/tv52"
             />
 
         <TextView
@@ -202,6 +226,7 @@
             android:layout_height="match_parent"
             android:layout_weight="3"
             android:background="@color/moma_garnet"
+            android:id="@+id/tv53"
             />
 
         <TextView
@@ -209,6 +234,7 @@
             android:layout_height="match_parent"
             android:layout_weight="2"
             android:background="@color/moma_black"
+            android:id="@+id/tv54"
             />
 
         <TextView
@@ -216,6 +242,7 @@
             android:layout_height="match_parent"
             android:layout_weight="4"
             android:background="@color/moma_light_gray"
+            android:id="@+id/tv55"
             />
 
     </LinearLayout>
@@ -224,5 +251,6 @@
         android:layout_height="40dp"
         android:background="@color/moma_black"
         android:max="100"
+        android:id="@+id/seekbar"
         />
 </LinearLayout>

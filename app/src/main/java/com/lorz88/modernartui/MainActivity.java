@@ -11,7 +11,11 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.SeekBar;
+import android.widget.TextView;
 
 /**
  * This application's user interface is composed of geometric shapes arranged in a particular order.
@@ -32,13 +36,36 @@ public class MainActivity extends ActionBarActivity {
     private static final int MENU_MORE_INFO = Menu.FIRST;
     private static final String TAG = "ModernArtUI";
     public static final String ARTIST_URL = "http://www.moma.org/collection/browse_results.php?criteria=O%3ADE%3AI%3A5%7CG%3AHI%3AE%3A1&page_number=1&template_id=1&sort_order=2";
-
+    private TextView tv11, tv12, tv13, tv14, tv15,
+                     tv21, tv22, tv23, tv24, tv25,
+                     tv31, tv32, tv33, tv34, tv35,
+                     tv41, tv42, tv43, tv44, tv45,
+                     tv51, tv52, tv53, tv54, tv55;
+    private TextView[] mTVArray = { tv11, tv12, tv13, tv14, tv15,
+                                    tv21, tv22, tv23, tv24, tv25,
+                                    tv31, tv32, tv33, tv34, tv35,
+                                    tv41, tv42, tv43, tv44, tv45,
+                                    tv51, tv52, tv53, tv54, tv55};
     private SeekBar mSeekbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        LinearLayout mainLayout = (LinearLayout) findViewById(R.id.main_linear_layout);
+
+        // First we iterate through the Layout Views
+        //NOTE -1 is substracted as we don't want to include the seek bar.
+        for (int i = 0; i < ((ViewGroup)mainLayout).getChildCount()-1; i++) {
+            Log.d(TAG, "Iterating now throuw Layouts i: "+i);
+            //Iterate throught the TextViews
+            View childLinLayout = ((ViewGroup)mainLayout).getChildAt(i);
+            for (int t = 0; t < ((ViewGroup)childLinLayout).getChildCount(); t++) {
+                Log.d(TAG, ">> Iterating now throuw Layouts t: "+t);
+                TextView textView = (TextView) ((ViewGroup) childLinLayout).getChildAt(t);
+                mTVArray[i+t] = textView;
+            }
+        }
     }
 
 
@@ -67,10 +94,6 @@ public class MainActivity extends ActionBarActivity {
     }
 
     public static class MoreInfoDialog extends DialogFragment {
-
-        public static MoreInfoDialog newInstance() {
-            return new MoreInfoDialog();
-        }
 
         @Override
         public Dialog onCreateDialog(Bundle savedInstanceState) {
