@@ -13,6 +13,19 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.SeekBar;
 
+/**
+ * This application's user interface is composed of geometric shapes arranged in a particular order.
+ * This application's user interface has one area containing multiple colored rectangles and another
+ * containing a SeekBar (sometimes called a Slider). When the user drags the SeekBar, all non-white /
+ * non- grey rectangles gradually change their color.
+ *
+ * This specific implementation was inspired on the works Sadie Benning, here is a link to the artist's
+ * work : http://www.moma.org/collection/browse_results.php?object_id=187158
+ *
+ * App developed for learning purposes for the Coursera Android Development Course.
+ *
+ * @author Jose M Mucientes
+ */
 
 public class MainActivity extends ActionBarActivity {
 
