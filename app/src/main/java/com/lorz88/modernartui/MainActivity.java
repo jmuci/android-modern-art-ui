@@ -38,17 +38,8 @@ public class MainActivity extends ActionBarActivity {
     private static final int MENU_MORE_INFO = Menu.FIRST;
     private static final String TAG = "ModernArtUI";
     public static final String ARTIST_URL = "http://www.moma.org/collection/browse_results.php?criteria=O%3ADE%3AI%3A5%7CG%3AHI%3AE%3A1&page_number=1&template_id=1&sort_order=2";
-    private TextView tv11, tv12, tv13, tv14, tv15,
-                     tv21, tv22, tv23, tv24, tv25,
-                     tv31, tv32, tv33, tv34, tv35,
-                     tv41, tv42, tv43, tv44, tv45,
-                     tv51, tv52, tv53, tv54, tv55;
-    private TextView[] mTVArray = { tv11, tv12, tv13, tv14, tv15,
-                                    tv21, tv22, tv23, tv24, tv25,
-                                    tv31, tv32, tv33, tv34, tv35,
-                                    tv41, tv42, tv43, tv44, tv45,
-                                    tv51, tv52, tv53, tv54, tv55};
-    private int [] mOriginalColors = new int[mTVArray.length];
+    private TextView[][] mTVArray = new TextView[5][5];
+    private int [][] mOriginalColors = new int[5][5];
     private SeekBar mSeekbar;
 
     @Override
@@ -62,16 +53,16 @@ public class MainActivity extends ActionBarActivity {
         // First we iterate through the Layout Views
         //NOTE -1 is substracted as we don't want to include the seek bar.
         for (int i = 0; i < ((ViewGroup)mainLayout).getChildCount()-1; i++) {
-            Log.d(TAG, "Iterating now throuw Layouts i: "+i);
-            //Iterate throught the TextViews
+            Log.d(TAG, "Iterating now through Layouts i: "+i);
+            //Iterate through the TextViews
             View childLinLayout = ((ViewGroup)mainLayout).getChildAt(i);
             for (int t = 0; t < ((ViewGroup)childLinLayout).getChildCount(); t++) {
-                Log.d(TAG, ">> Iterating now throuw Layouts t: "+t+"ArrayPos: "+((int)i+(int)t));
+                Log.d(TAG, ">> Iterating now through Layouts t: "+t+"ArrayPos: "+((int)i+(int)t));
                 TextView textView = (TextView) ((ViewGroup) childLinLayout).getChildAt(t);
-                mTVArray[i*5+t] = textView;
+                mTVArray[i][t] = textView;
 
                 int color = ((ColorDrawable) textView.getBackground()).getColor();
-                mOriginalColors[i*5+t] = color;
+                mOriginalColors[i][t] = color;
             }
         }
 
@@ -80,17 +71,28 @@ public class MainActivity extends ActionBarActivity {
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
 
                 for (int i= 0; i < mTVArray.length; i++) {
-                    int color;
-                    if ((i+1)%5 == 0 && i !=0 && i != mTVArray.length-1) {
-                        color = transitionColor(mOriginalColors[i], mOriginalColors[(i+3)%mTVArray.length], (float) progress/30);
+                    for (int j=0; j <mTVArray[i].length; j++) {
+                        int [] transition_index  = {0,0};
+                        int color;
+                        // If tile in the right edge and not in bottom right corner
+                        if (j == 4 && i != 4) {
+                            transition_index[0] = i+1;
+                            transition_index[1] = 2;
+                        } else if (i == 4 && j == 4) {
+                            transition_index[0] = 0;
+                            transition_index[1] = 1;
+                            Log.d(TAG, "Bottom right");
+                        } else {
+                            transition_index[0] = i;
+                            transition_index[1] = j+1;
+                        }
+                        Log.d(TAG, "Current Index: x "+ i + " y "+ j+ " Change to: x "+transition_index[0]+" y "+transition_index[1]);
+
+                        color = transitionColor(mOriginalColors[i][j],
+                                                mOriginalColors[transition_index[0]][transition_index[1]],
+                                                (float) progress / 30);
+                        mTVArray[i][j].setBackgroundColor(color);
                     }
-                    else if (i ==  mTVArray.length-1) {
-                        color = transitionColor(mOriginalColors[i], mOriginalColors[(i+2)%mTVArray.length], (float) progress/30);
-                    }
-                    else {
-                        color = transitionColor(mOriginalColors[i], mOriginalColors[(i + 1) % mTVArray.length], (float) progress /30);
-                    }
-                    mTVArray[i].setBackgroundColor(color);
                 }
             }
 
